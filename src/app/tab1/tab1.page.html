@@ -1,45 +1,55 @@
+<!-- Menú lateral -->
 <ion-menu side="start" menuId="first" contentId="main-content">
+  <!-- Encabezado del menú -->
   <ion-header>
     <ion-toolbar color="primary">
       <ion-title>Menú</ion-title>
     </ion-toolbar>
   </ion-header>
 
+  <!-- Contenido del menú -->
   <ion-content>
     <ion-list>
+      <!-- Opción del menú: Inicio -->
       <ion-menu-toggle auto-hide="false">
         <ion-item routerLink="/tabs/tab1">
           <ion-icon slot="start" name="home-outline"></ion-icon>
           <ion-label>Inicio</ion-label>
         </ion-item>
       </ion-menu-toggle>
+      <!-- Opción del menú: Contactos -->
       <ion-menu-toggle auto-hide="false">
         <ion-item routerLink="/tabs/tab2">
           <ion-icon slot="start" name="people-outline"></ion-icon>
           <ion-label>Contactos</ion-label>
         </ion-item>
       </ion-menu-toggle>
+      <!-- Opción del menú: Configuración -->
       <ion-menu-toggle auto-hide="false">
-        <ion-item routerLink="/tabs/configuracion">
+        <ion-item routerLink="/tabs/tab3">
           <ion-icon slot="start" name="settings-outline"></ion-icon>
-          <ion-label>Configuración</ion-label>
+          <ion-label>Perfil</ion-label>
         </ion-item>
       </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>
 
+<!-- Encabezado principal -->
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!-- Botón para abrir el menú -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <!-- Título de la página -->
     <ion-title>
       OneCall
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- Encabezado condensado (para scroll) -->
 <ion-header collapse="condense">
   <ion-toolbar>
     <ion-title size="large">
@@ -48,17 +58,27 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- Contenido principal -->
 <ion-content id="main-content" class="ion-padding">
+  <!-- Tarjeta de bienvenida -->
   <ion-card>
     <ion-card-header>
       <ion-card-title>Bienvenido a OneCall</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      OneCall es una aplicación de mensajería instantánea que te permite comunicarte con tus amigos y familiares de manera rápida y sencilla.
+      <!-- Descripción sobre la filosofía de OneCall -->
+      <h2>En un mundo cada vez más interconectado, OneCall se erige como un faro de innovación y eficiencia en el ámbito de las telecomunicaciones. Su filosofía se basa en la creencia de que la comunicación es el hilo que une a la humanidad, y que, a través de la tecnología, podemos trascender las barreras físicas y temporales que nos separan.
+      </h2>
+    </ion-card-content>
+    <ion-card-content>
+      <!-- Descripción sobre los servicios tecnológicos de OneCall -->
+      <h2>Desde el ámbito de la tecnología, OneCall se dedica a ofrecer soluciones avanzadas que no solo satisfacen las necesidades actuales, sino que también anticipan las demandas del futuro. La integración de inteligencia artificial y análisis de datos permite a la empresa optimizar sus servicios, garantizando una experiencia de usuario fluida y personalizada. Este enfoque proactivo no solo mejora la conectividad, sino que también fomenta un entorno de colaboración y creatividad.
+      </h2>
     </ion-card-content>
   </ion-card>
 
-  <ion-button expand="full" routerLink="/tabs/tab2">
+  <!-- Botón para navegar a la página de contactos -->
+  <ion-button expand="full" color="#fff" routerLink="/tabs/tab2">
     Ir a Contactos
   </ion-button>
 </ion-content>

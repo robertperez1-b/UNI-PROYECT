@@ -1,79 +1,81 @@
+<!-- Menú lateral -->
 <ion-menu side="start" menuId="first" contentId="main-content">
+  <!-- Encabezado del menú -->
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Menú</ion-title>
+      <ion-title>Menú</ion-title> <!-- Título del menú -->
     </ion-toolbar>
   </ion-header>
 
+  <!-- Contenido del menú -->
   <ion-content>
     <ion-list>
+      <!-- Opción del menú: Inicio -->
       <ion-menu-toggle auto-hide="false">
         <ion-item routerLink="/tabs/tab1">
-          <ion-icon slot="start" name="home-outline"></ion-icon>
-          <ion-label>Inicio</ion-label>
+          <ion-icon slot="start" name="home-outline"></ion-icon> <!-- Icono de inicio -->
+          <ion-label>Inicio</ion-label> <!-- Etiqueta de inicio -->
         </ion-item>
       </ion-menu-toggle>
+      <!-- Opción del menú: Contactos -->
       <ion-menu-toggle auto-hide="false">
         <ion-item routerLink="/tabs/tab2">
-          <ion-icon slot="start" name="people-outline"></ion-icon>
-          <ion-label>Contactos</ion-label>
+          <ion-icon slot="start" name="people-outline"></ion-icon> <!-- Icono de contactos -->
+          <ion-label>Contactos</ion-label> <!-- Etiqueta de contactos -->
         </ion-item>
       </ion-menu-toggle>
+      <!-- Opción del menú: Configuración -->
       <ion-menu-toggle auto-hide="false">
         <ion-item routerLink="/tabs/tab3">
-          <ion-icon slot="start" name="settings-outline"></ion-icon>
-          <ion-label>Configuración</ion-label>
+          <ion-icon slot="start" name="settings-outline"></ion-icon> <!-- Icono de configuración -->
+          <ion-label>Configuración</ion-label> <!-- Etiqueta de configuración -->
         </ion-item>
       </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>
 
+<!-- Encabezado principal -->
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!-- Botón para abrir el menú -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <!-- Título de la página -->
     <ion-title>
-      Perfil
+      Perfil <!-- Título de la página -->
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- Encabezado condensado (para scroll) -->
 <ion-header collapse="condense">
   <ion-toolbar>
     <ion-title size="large">
-      Perfil
+      Perfil <!-- Título grande para el encabezado condensado -->
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- Contenido principal -->
 <ion-content id="main-content" class="ion-padding">
-<!-- Debe ir dentro de <ion-content> -->
-<ion-card *ngFor="let card of cards" class="contact-card">
-  <ion-item lines="none">
-    <ion-avatar slot="start">
-      <img [src]="card.image" alt="Foto de {{ card.name }}" />
-    </ion-avatar>
-    <ion-label>
-      <h2>{{ card.name }}</h2>
-      <p>{{ card.role }} - {{ card.company }}</p>
-      <p>{{ card.location }}</p>
-    </ion-label>
-  </ion-item>
-  <ion-card-content>
-    <p><ion-icon name="mail-outline"></ion-icon> {{ card.email }}</p>
-    <p><ion-icon name="call-outline"></ion-icon> {{ card.phone }}</p>
-    <p><ion-icon name="call-outline"></ion-icon> {{ card.location }}</p>
-    <p><ion-icon name="call-outline"></ion-icon> {{ card.role }}</p>
-    <ion-button expand="block" color="primary" (click)="verMas(card)">Ver más</ion-button>
-    <ion-button expand="block" color="danger" (click)="cerrarDetalle()">Cerrar</ion-button>
-  </ion-card-content>
-</ion-card>
+  <!-- Tarjetas de contacto -->
+  <ion-card *ngFor="let card of cards" class="contact-card">
+    <ion-item lines="none">
+      <!-- Avatar del contacto -->
+      <ion-avatar slot="start">
+        <img [src]="card.image" alt="Foto de {{ card.name }}" />
+      </ion-avatar>
+      <!-- Información del contacto -->
+      <ion-label>
+        <h2>{{ card.name }}</h2> <!-- Nombre del contacto -->
+        <p>{{ card.role }} - {{ card.company }}</p> <!-- Rol y empresa -->
+        <p>{{ card.location }}</p> <!-- Ubicación -->
+      </ion-label>
+    </ion-item>
+    
+    
+  </ion-card>
 
-<!-- Detalle -->
-<ion-card *ngIf="selectedCard" class="contact-card detalle">
-  <!-- ...detalle como ya tienes... -->
-</ion-card>
 </ion-content>
-

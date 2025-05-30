@@ -6,8 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss'],
   standalone: false,
 })
-export class Tab2Page {
 
+export class Tab2Page {
+  
 cards = [
   {
     name: 'María López',
@@ -29,14 +30,7 @@ cards = [
   }
   
 ];
-selectedCard: any = null;
 
-  verMas(card: any) {
-    this.selectedCard = card;
-  }
-
-  cerrarDetalle() {
-    this.selectedCard = null;
-  }
 
 }
+

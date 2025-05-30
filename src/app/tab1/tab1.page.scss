@@ -1,10 +1,12 @@
 // Variables
-$primary-color: #3880ff;
-$secondary-color: #3dc2ff;
-$text-color: #222;
-$card-bg-color: #f9f9f9;
-$button-bg-color: $primary-color;
-$button-text-color: #fff;
+$primary-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+$secondary-gradient: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+$button-bg-solid: #e6683c; // Color sólido derivado del gradiente para el botón
+$text-color: #333; // Color del texto
+$card-bg-color: #ffffff; // Fondo blanco para las tarjetas
+$menu-bg-color: #f9f9f9; // Fondo claro para el menú
+$button-text-color: #fff; // Texto blanco para los botones
+$shadow-color: rgba(54, 52, 52, 0.1); // Color de sombra
 
 // Mixins
 @mixin flex-center {
@@ -13,59 +15,113 @@ $button-text-color: #fff;
   align-items: center;
 }
 
-// Styles
-ion-header {
-  ion-toolbar {
-    background-color: $primary-color;
-    color: $button-text-color;
+// Estilos generales
+ion-content {
+  background-color: #fafafa; // Fondo claro para el contenido
+  padding: 1rem; // Espaciado interno
+  color: $text-color; // Color del texto
+}
+
+// Estilos para el menú lateral
+ion-menu {
+  background: $menu-bg-color; // Fondo del menú
+  ion-header {
+    ion-toolbar {
+      background: $primary-gradient; // Gradiente en el encabezado del menú
+      color: $button-text-color; // Texto blanco
+      box-shadow: 0 2px 4px $shadow-color; // Sombra suave
+    }
 
     ion-title {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.5rem; // Tamaño del título
+      font-weight: bold; // Negrita para el título
+    }
+  }
+
+  ion-content {
+    ion-list {
+      ion-item {
+        color: $text-color; // Color del texto de las opciones
+        font-size: 1rem; // Tamaño de fuente
+        border-radius: 10px; // Bordes redondeados
+        transition: background 0.3s ease, color 0.3s ease; // Transición suave
+        &:hover {
+          background: $secondary-gradient; // Gradiente en hover
+          color: $button-text-color; // Texto blanco en hover
+        }
+      }
+    }
+  }
+}
+
+// Estilos para el encabezado principal
+ion-header {
+  ion-toolbar {
+    background: transparent; // Fondo transparente
+    color: #c5adad98; // Color del texto
+
+    ion-buttons {
+      ion-menu-button {
+        color: $text-color; // Color del botón del menú
+      }
+    }
+
+    ion-title {
+      font-size: 1.5rem; // Tamaño del título
+      font-weight: bold; // Negrita para el título
     }
   }
 
   &[collapse="condense"] {
-    ion-title {
-      font-size: 2rem;
-    }
-  }
-}
-
-ion-content {
-  background-color: #fff;
-  padding: 1rem;
-
-  ion-card {
-    background-color: $card-bg-color;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-    ion-card-header {
-      ion-card-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: $text-color;
+    ion-toolbar {
+      ion-title {
+        font-size: 2rem; // Tamaño más grande para el título condensado
       }
     }
+  }
+}
 
-    ion-card-content {
-      font-size: 1rem;
-      color: $text-color;
-      line-height: 1.5;
+// Estilos para las tarjetas de bienvenida
+ion-card {
+  background-color: $card-bg-color; // Fondo blanco
+  border-radius: 15px; // Bordes redondeados
+  box-shadow: 0 4px 10px $shadow-color; // Sombra suave
+  margin-bottom: 1rem; // Espaciado entre tarjetas
+  padding: 1rem; // Espaciado interno
+
+  ion-card-header {
+    ion-card-title {
+      font-size: 1.5rem; // Tamaño del título de la tarjeta
+      font-weight: bold; // Negrita para el título
+      color: $text-color; // Color del texto
     }
   }
 
-  ion-button {
-    margin-top: 1rem;
-    background-color: $button-bg-color;
-    color: $button-text-color;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-
-    &:hover {
-      background-color: darken($button-bg-color, 10%);
+  ion-card-content {
+    h2 {
+      font-size: 1rem; // Tamaño del texto
+      color: darken($text-color, 10%); // Texto un poco más oscuro
+      margin: 0.5rem 0; // Espaciado entre párrafos
+      line-height: 1.5; // Espaciado entre líneas
     }
   }
 }
+
+// Estilos para el botón corregido para armonizar
+ion-button {
+  margin-top: 1rem; // Margen superior
+  background-color: $button-bg-solid; // Fondo sólido en vez de gradiente
+  color: $button-text-color; // Texto blanco
+  font-size: 1rem; // Tamaño de fuente
+  font-weight: bold; // Negrita para el texto
+  border-radius: 25px; // Bordes redondeados
+  padding: 0.75rem 1.5rem; // Espaciado interno
+  box-shadow: 0 3px 8px rgba(230, 104, 60, 0.5); // Sombra suave cálida
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; // Transición suave
+
+  &:hover {
+    background-color: darken($button-bg-solid, 10%); // Oscurecer color en hover
+    box-shadow: 0 6px 15px rgba(230, 104, 60, 0.7); // Sombra más pronunciada
+  }
+}
+

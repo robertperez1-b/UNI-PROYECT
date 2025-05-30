@@ -1,0 +1,113 @@
+// Variables
+$primary-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+$secondary-gradient: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+$text-color: #333; // Color del texto
+$menu-text-color: #111; // Color del texto del menú más oscuro
+$menu-bg-color: #f9f9f9; // Fondo claro para el menú
+$card-bg-color: #ffffff; // Fondo blanco para las tarjetas
+$button-bg-gradient: $primary-gradient; // Gradiente para los botones
+$button-text-color: #fff; // Texto blanco para los botones
+$shadow-color: rgba(0, 0, 0, 0.1); // Color de sombra
+
+// Estilos generales
+ion-content {
+  background-color: #fafafa; // Fondo claro para el contenido
+  padding: 1rem; // Espaciado interno
+  color: $text-color; // Color del texto
+}
+
+// Estilos para el menú lateral
+ion-menu {
+  background: $menu-bg-color; // Fondo del menú
+  ion-header {
+    ion-toolbar {
+      background: $primary-gradient; // Gradiente en el encabezado del menú
+      color: $button-text-color; // Texto blanco
+      box-shadow: 0 2px 4px $shadow-color; // Sombra suave
+    }
+
+    ion-title {
+      font-size: 1.5rem; // Tamaño del título
+      font-weight: bold; // Negrita para el título
+    }
+  }
+
+  ion-content {
+    ion-list {
+      ion-item {
+        color: $menu-text-color; // Color del texto de las opciones más oscuro
+        font-size: 1rem; // Tamaño de fuente
+        border-radius: 10px; // Bordes redondeados
+        transition: background 0.3s ease, color 0.3s ease; // Transición suave
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.7); // Sombra de texto para resaltar
+
+        &:hover {
+          background: $secondary-gradient; // Gradiente en hover
+          color: $button-text-color; // Texto blanco en hover
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); // Sombra más pronunciada en hover
+        }
+      }
+    }
+  }
+}
+
+// Estilos para el encabezado principal
+ion-header {
+  ion-toolbar {
+    background: transparent; // Fondo transparente
+    color: #c5adad98; // Color del texto
+
+    ion-buttons {
+      ion-menu-button {
+        color: $text-color; // Color del botón del menú
+      }
+    }
+
+    ion-title {
+      font-size: 1.5rem; // Tamaño del título
+      font-weight: bold; // Negrita para el título
+    }
+  }
+
+  &[collapse="condense"] {
+    ion-toolbar {
+      ion-title {
+        font-size: 2rem; // Tamaño más grande para el título condensado
+      }
+    }
+  }
+}
+
+// Estilos para las tarjetas de contacto
+.contact-card {
+  background-color: $card-bg-color; // Fondo blanco
+  border-radius: 15px; // Bordes redondeados
+  box-shadow: 0 4px 10px $shadow-color; // Sombra suave
+  margin-bottom: 1rem; // Espaciado entre tarjetas
+  padding: 1rem; // Espaciado interno
+
+  ion-item {
+    --background: transparent; // Fondo transparente para el item
+    ion-avatar {
+      border: 3px solid $primary-gradient; // Borde con gradiente
+      border-radius: 50%; // Forma circular
+      overflow: hidden; // Recorte del contenido
+      width: 60px; // Tamaño del avatar
+      height: 60px; // Tamaño del avatar
+    }
+
+    ion-label {
+      h2 {
+        font-size: 1.25rem; // Tamaño del nombre
+        font-weight: bold; // Negrita para el nombre
+        color: $text-color; // Color del texto
+      }
+
+      p {
+        font-size: 0.9rem; // Tamaño de la información adicional
+        color: darken($text-color, 10%); // Texto un poco más oscuro
+        margin: 0.25rem 0; // Espaciado entre líneas
+      }
+    }
+  }
+}

@@ -61,6 +61,14 @@
       <p>{{ card.location }}</p>
     </ion-label>
   </ion-item>
+  <ion-card-content>
+    <!-- Información adicional del contacto -->
+    <p><ion-icon name="mail-outline"></ion-icon> {{ card.email }}</p> <!-- Correo -->
+    <p><ion-icon name="call-outline"></ion-icon> {{ card.phone }}</p> <!-- Teléfono -->
+    <p><ion-icon name="call-outline"></ion-icon> {{ card.location }}</p> <!-- Ubicación -->
+    <p><ion-icon name="call-outline"></ion-icon> {{ card.role }}</p> <!-- Rol -->
+   
+  </ion-card-content>
   </ion-card>
 </ion-content>
 
