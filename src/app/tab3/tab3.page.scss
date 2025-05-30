@@ -1,0 +1,17 @@
+.contact-card {
+  --ion-card-background: #f8f9fa;
+  --ion-item-background: #ffffff;
+  --ion-text-color: #212529;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  margin-bottom: 20px;
+}
+ion-button {
+  --background: #2563eb;
+  --background-hover: #1d4ed8;
+  --color: #fff;
+}
+.detalle {
+  border: 2px solid #2563eb;
+  background: #f1f5f9;
+}

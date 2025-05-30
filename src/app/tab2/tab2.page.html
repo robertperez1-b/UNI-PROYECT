@@ -1,20 +1,79 @@
+<ion-menu side="start" menuId="first" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/tabs/tab1">
+          <ion-icon slot="start" name="home-outline"></ion-icon>
+          <ion-label>Inicio</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/tabs/tab2">
+          <ion-icon slot="start" name="people-outline"></ion-icon>
+          <ion-label>Contactos</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/tabs/tab3">
+          <ion-icon slot="start" name="settings-outline"></ion-icon>
+          <ion-label>Configuración</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
-      Tab 2
+      Perfil
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card *ngFor="let card of cards">
-    <img [src]="card.image" alt="Imagen card" />
-    <ion-card-header>
-      <ion-card-title>{{ card.title }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      {{ card.description }}
-    </ion-card-content>
-    <ion-button expand="block" (click)="verMas(card)">Ver más</ion-button>
-  </ion-card>
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="large">
+      Perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main-content" class="ion-padding">
+<!-- Debe ir dentro de <ion-content> -->
+<ion-card *ngFor="let card of cards" class="contact-card">
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img [src]="card.image" alt="Foto de {{ card.name }}" />
+    </ion-avatar>
+    <ion-label>
+      <h2>{{ card.name }}</h2>
+      <p>{{ card.role }} - {{ card.company }}</p>
+      <p>{{ card.location }}</p>
+    </ion-label>
+  </ion-item>
+  <ion-card-content>
+    <p><ion-icon name="mail-outline"></ion-icon> {{ card.email }}</p>
+    <p><ion-icon name="call-outline"></ion-icon> {{ card.phone }}</p>
+    <p><ion-icon name="call-outline"></ion-icon> {{ card.location }}</p>
+    <p><ion-icon name="call-outline"></ion-icon> {{ card.role }}</p>
+    <ion-button expand="block" color="primary" (click)="verMas(card)">Ver más</ion-button>
+    <ion-button expand="block" color="danger" (click)="cerrarDetalle()">Cerrar</ion-button>
+  </ion-card-content>
+</ion-card>
+
+<!-- Detalle -->
+<ion-card *ngIf="selectedCard" class="contact-card detalle">
+  <!-- ...detalle como ya tienes... -->
+</ion-card>
 </ion-content>
+

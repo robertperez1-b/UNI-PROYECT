@@ -49,16 +49,18 @@
 </ion-header>
 
 <ion-content id="main-content" class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Bienvenido a OneCall</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      OneCall es una aplicación de mensajería instantánea que te permite comunicarte con tus amigos y familiares de manera rápida y sencilla.
-    </ion-card-content>
+<!-- Debe ir dentro de <ion-content> -->
+<ion-card *ngFor="let card of cards" class="contact-card">
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img [src]="card.image" alt="Foto de {{ card.name }}" />
+    </ion-avatar>
+    <ion-label>
+      <h2>{{ card.name }}</h2>
+      <p>{{ card.role }} - {{ card.company }}</p>
+      <p>{{ card.location }}</p>
+    </ion-label>
+  </ion-item>
   </ion-card>
-
-  <ion-button expand="full" routerLink="/tabs/tab2">
-    Ir a Contactos
-  </ion-button>
 </ion-content>
+

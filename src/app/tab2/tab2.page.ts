@@ -7,22 +7,36 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class Tab2Page {
-cards = [
-    {
-      title: 'Curso de Angular',
-      description: 'Aprende Angular con ejemplos prácticos',
-      image: 'https://angular.io/assets/images/logos/angular/angular.png'
-    },
-    {
-      title: 'Curso de Ionic',
-      description: 'Crea apps móviles con Ionic Framework',
-      image: 'https://ionicframework.com/docs/icons/logo-icon.png'
-    }
-  ];
-  verMas(card: any) {
-  console.log('Card clickeada:', card);
-}
 
-  constructor() {}
+cards = [
+  {
+    name: 'María López',
+    role: 'Desarrolladora Frontend',
+    email: 'maria.lopez@email.com',
+    phone: '+34 600 123 456',
+    company: 'Tech Solutions',
+    location: 'Madrid, España',
+    image: 'https://randomuser.me/api/portraits/women/44.jpg'
+  },
+  {
+    name: 'Carlos Pérez',
+    role: 'Project Manager',
+    email: 'carlos.perez@email.com',
+    phone: '+34 600 654 321',
+    company: 'Innovatech',
+    location: 'Barcelona, España',
+    image: 'https://randomuser.me/api/portraits/men/32.jpg'
+  }
+  
+];
+selectedCard: any = null;
+
+  verMas(card: any) {
+    this.selectedCard = card;
+  }
+
+  cerrarDetalle() {
+    this.selectedCard = null;
+  }
 
 }
