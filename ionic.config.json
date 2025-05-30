@@ -1,0 +1,8 @@
+{
+  "name": "SAMI",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "d65d0168"
+}

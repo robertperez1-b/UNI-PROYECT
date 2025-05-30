@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 2
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let card of cards">
+    <img [src]="card.image" alt="Imagen card" />
+    <ion-card-header>
+      <ion-card-title>{{ card.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ card.description }}
+    </ion-card-content>
+    <ion-button expand="block" (click)="verMas(card)">Ver más</ion-button>
+  </ion-card>
+</ion-content>
