@@ -1,68 +1,77 @@
+<!-- Menú lateral -->
 <ion-menu side="start" menuId="first" contentId="main-content">
+  <!-- Encabezado del menú -->
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Menú</ion-title>
+      <ion-title>Menú</ion-title> <!-- Título del menú -->
     </ion-toolbar>
   </ion-header>
 
+  <!-- Contenido del menú -->
   <ion-content>
     <ion-list>
+      <!-- Opción del menú: Inicio -->
       <ion-menu-toggle auto-hide="false">
         <ion-item routerLink="/tabs/tab1">
-          <ion-icon slot="start" name="home-outline"></ion-icon>
-          <ion-label>Inicio</ion-label>
+          <ion-icon slot="start" name="home-outline"></ion-icon> <!-- Icono de inicio -->
+          <ion-label>Inicio</ion-label> <!-- Etiqueta de inicio -->
         </ion-item>
       </ion-menu-toggle>
+
+      <!-- Opción del menú: Contactos -->
       <ion-menu-toggle auto-hide="false">
         <ion-item routerLink="/tabs/tab2">
-          <ion-icon slot="start" name="people-outline"></ion-icon>
-          <ion-label>Contactos</ion-label>
+          <ion-icon slot="start" name="people-outline"></ion-icon> <!-- Icono de contactos -->
+          <ion-label>Contactos</ion-label> <!-- Etiqueta de contactos -->
         </ion-item>
       </ion-menu-toggle>
+
+      <!-- Opción del menú: Configuración -->
       <ion-menu-toggle auto-hide="false">
         <ion-item routerLink="/tabs/tab3">
-          <ion-icon slot="start" name="settings-outline"></ion-icon>
-          <ion-label>Configuración</ion-label>
+          <ion-icon slot="start" name="settings-outline"></ion-icon> <!-- Icono de configuración -->
+          <ion-label>Configuración</ion-label> <!-- Etiqueta de configuración -->
         </ion-item>
       </ion-menu-toggle>
     </ion-list>
   </ion-content>
 </ion-menu>
 
+<!-- Encabezado principal de la página -->
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button></ion-menu-button> <!-- Botón para abrir el menú -->
     </ion-buttons>
     <ion-title>
-      Información Personal
+      Información Personal <!-- Título de la página -->
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-
+<!-- Contenido principal de la página -->
 <ion-content id="main-content" class="ion-padding">
-<!-- Debe ir dentro de <ion-content> -->
-<ion-card *ngFor="let card of cards" class="contact-card">
-  <ion-item lines="none">
-    <ion-avatar slot="start">
-      <img [src]="card.image" alt="Foto de {{ card.name }}" />
-    </ion-avatar>
-    <ion-label>
-      <h2>{{ card.name }}</h2>
-      <p>{{ card.role }} - {{ card.company }}</p>
-      <p>{{ card.location }}</p>
-    </ion-label>
-  </ion-item>
-  <ion-card-content>
-    <!-- Información adicional del contacto -->
-    <p><ion-icon name="mail-outline"></ion-icon> {{ card.email }}</p> <!-- Correo -->
-    <p><ion-icon name="call-outline"></ion-icon> {{ card.phone }}</p> <!-- Teléfono -->
-    <p><ion-icon name="call-outline"></ion-icon> {{ card.location }}</p> <!-- Ubicación -->
-    <p><ion-icon name="call-outline"></ion-icon> {{ card.role }}</p> <!-- Rol -->
-   
-  </ion-card-content>
+  <!-- Tarjetas dinámicas generadas con *ngFor -->
+  <ion-card *ngFor="let card of cards" class="contact-card">
+    <!-- Encabezado de la tarjeta -->
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img [src]="card.image" alt="Foto de {{ card.name }}" /> <!-- Imagen del contacto -->
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ card.name }}</h2> <!-- Nombre del contacto -->
+        <p>{{ card.role }} - {{ card.company }}</p> <!-- Rol y empresa -->
+        <p>{{ card.location }}</p> <!-- Ubicación -->
+      </ion-label>
+    </ion-item>
+
+    <!-- Contenido adicional de la tarjeta -->
+    <ion-card-content>
+      <!-- Información del contacto -->
+      <p><ion-icon name="mail-outline"></ion-icon> {{ card.email }}</p> <!-- Correo -->
+      <p><ion-icon name="call-outline"></ion-icon> {{ card.phone }}</p> <!-- Teléfono -->
+      <p><ion-icon name="call-outline"></ion-icon> {{ card.location }}</p> <!-- Ubicación -->
+      <p><ion-icon name="call-outline"></ion-icon> {{ card.role }}</p> <!-- Rol -->
+    </ion-card-content>
   </ion-card>
 </ion-content>
-
