@@ -40,38 +40,44 @@
 <!-- Encabezado principal de la página -->
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button> <!-- Botón para abrir el menú -->
+    <ion-title><h1>Informacion Personal</h1></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="refrescarPagina()">
+        <ion-icon slot="icon-only" name="refresh-outline"></ion-icon>
+      </ion-button>
     </ion-buttons>
-    <ion-title>
-      Información Personal <!-- Título de la página -->
-    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<!-- Contenido principal de la página -->
-<ion-content id="main-content" class="ion-padding">
-  <!-- Tarjetas dinámicas generadas con *ngFor -->
-  <ion-card *ngFor="let card of cards" class="contact-card">
-    <!-- Encabezado de la tarjeta -->
-    <ion-item lines="none">
+<ion-header  class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Contactos Guardados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let card of cards">
       <ion-avatar slot="start">
-        <img [src]="card.image" alt="Foto de {{ card.name }}" /> <!-- Imagen del contacto -->
+        <img [src]="card.image" alt="Foto de contacto">
       </ion-avatar>
       <ion-label>
-        <h2>{{ card.name }}</h2> <!-- Nombre del contacto -->
-        <p>{{ card.role }} - {{ card.company }}</p> <!-- Rol y empresa -->
-        <p>{{ card.location }}</p> <!-- Ubicación -->
+        <h2>{{ card.name }}</h2>
+        <p>{{ card.location }}</p>      
       </ion-label>
+      <ion-button (click)="verMas(card)">Ver más</ion-button>
     </ion-item>
+  </ion-list>
 
-    <!-- Contenido adicional de la tarjeta -->
-    <ion-card-content>
-      <!-- Información del contacto -->
-      <p><ion-icon name="mail-outline"></ion-icon> {{ card.email }}</p> <!-- Correo -->
-      <p><ion-icon name="call-outline"></ion-icon> {{ card.phone }}</p> <!-- Teléfono -->
-      <p><ion-icon name="call-outline"></ion-icon> {{ card.location }}</p> <!-- Ubicación -->
-      <p><ion-icon name="call-outline"></ion-icon> {{ card.role }}</p> <!-- Rol -->
-    </ion-card-content>
-  </ion-card>
+  <!-- Detalle de la tarjeta seleccionada -->
+  <div *ngIf="selectedCard" class="detalle-card">
+    <h2>{{ selectedCard.name }}</h2>
+    <p>{{ selectedCard.surnames}}</p>
+    <p>{{ selectedCard.role }}</p>
+    <p>{{ selectedCard.email }}</p>
+    <p>{{ selectedCard.phone }}</p>
+    <p>{{ selectedCard.company }}</p>
+    <p>{{ selectedCard.location }}</p>
+    <ion-button (click)="cerrarDetalle()">Cerrar</ion-button>
+  </div>
 </ion-content>

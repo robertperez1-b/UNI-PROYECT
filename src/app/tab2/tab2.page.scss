@@ -134,3 +134,23 @@ ion-header {
     }
   }
 }
+
+.foto-perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin-bottom: 8px;
+  }
+
+  input[type="file"] {
+    width: auto;
+  }
+}
